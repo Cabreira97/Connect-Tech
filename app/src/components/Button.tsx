@@ -8,7 +8,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-primary',
+        default: 'bg-primary',  // Define o fundo como a cor primary
         secondary: 'bg-secondary',
         destructive: 'bg-destructive',
         ghost: 'bg-slate-700',
@@ -30,7 +30,7 @@ const buttonVariants = cva(
 const buttonTextVariants = cva('text-center font-medium', {
   variants: {
     variant: {
-      default: 'text-primary-foreground',
+      default: 'text-white',  // Define o texto como cor de foreground da primária
       secondary: 'text-secondary-foreground',
       destructive: 'text-destructive-foreground',
       ghost: 'text-primary-foreground',
@@ -47,6 +47,7 @@ const buttonTextVariants = cva('text-center font-medium', {
     size: 'default',
   },
 });
+
 
 interface ButtonProps
   extends React.ComponentPropsWithoutRef<typeof TouchableOpacity>,

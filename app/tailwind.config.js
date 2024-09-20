@@ -3,18 +3,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#1E40AF',  // Azul Profundo
-        secondary: '#F97316',  // Laranja Quente
-        accent: '#22C55E',  // Verde Vibrante
-        background: '#F3F4F6',  // Cinza Claro
-        surface: '#FFFFFF',  // Branco Puro
-        error: '#EF4444',  // Vermelho Vibrante
-        warning: '#F59E0B',  // Amarelo Alerta
-        info: '#3B82F6',  // Azul Informativo
-        success: '#10B981',  // Verde Sucesso
-        muted: '#9CA3AF',  // Cinza Suave
-        textPrimary: '#111827',  // Preto Escuro
-        textSecondary: '#6B7280',  // Cinza Médio
+        primary: '#1E40AF',  // Azul profundo
+        secondary: '#F97316',  // Laranja quente
+        destructive: '#EF4444',  // Vermelho destrutivo
+        'primary-foreground': '#FFFFFF',  // Texto branco para botões primários
+        'secondary-foreground': '#FFFFFF',  // Texto branco para botões secundários
+        'destructive-foreground': '#FFFFFF',  // Texto branco para botões destrutivos
+        surface: '#FFFFFF',  // Branco para superfícies
+        slate: '#1E293B',  // Cinza escuro para botões ghost
       },
     },
   },
