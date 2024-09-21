@@ -5,11 +5,12 @@ import CreateTypeSelector from "./src/screens/CreateTypeSelector";
 import RegisterClient from "./src/screens/RegisterClient";
 import RegisterOrganization from "./src/screens/RegisterOrganization";
 import EventItem from "./src/components/EventItem";
+import PersonItem from "./src/components/PersonItem";
 
 export default function App() {
   return (
     <View className="flex-1 items-center justify-center bg-slate-200">
-      <EventItem />
+      <PersonItem />
     </View>
   );
 }
