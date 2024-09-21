@@ -4,11 +4,12 @@ import LoginPage from "./src/screens/Login";
 import CreateTypeSelector from "./src/screens/CreateTypeSelector";
 import RegisterClient from "./src/screens/RegisterClient";
 import RegisterOrganization from "./src/screens/RegisterOrganization";
+import EventItem from "./src/components/EventItem";
 
 export default function App() {
   return (
     <View className="flex-1 items-center justify-center bg-slate-200">
-      <RegisterOrganization />
+      <EventItem />
     </View>
   );
 }
