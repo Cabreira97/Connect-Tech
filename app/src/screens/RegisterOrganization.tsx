@@ -2,7 +2,7 @@ import { Text, View } from "react-native";
 import { Input } from "../components/Input";
 import { Button } from "../components/Button";
 
-const RegisterClient = () => {
+const RegisterOrganization = () => {
     return ( <View className="items-center">
         <Text className="text-xl font-semibold pb-6">Faça seu cadastro</Text>
         <View className="w-72 pb-8 gap-2">
@@ -15,8 +15,8 @@ const RegisterClient = () => {
             <Input placeholder="Digite seu email" />
             </View>
             <View>
-            <Text className="pb-2 font-semibold">CPF</Text>
-            <Input placeholder="Digite seu CPF" />
+            <Text className="pb-2 font-semibold">CNPJ</Text>
+            <Input placeholder="Digite seu CNPJ" />
             </View>
             <View>
             <Text className="pb-2 font-semibold">Senha</Text>
@@ -31,4 +31,4 @@ const RegisterClient = () => {
     </View> );
 }
  
-export default RegisterClient;
+export default RegisterOrganization;
