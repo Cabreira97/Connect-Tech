@@ -2,9 +2,9 @@ import { Image, Text, View, TouchableOpacity } from "react-native";
 
 const EventItem = () => {
   return (
-    <TouchableOpacity className="min-w-[208px] max-w-[208px] lg:min-w-[384px] lg:max-w-[384px] cursor-pointer">
+    <TouchableOpacity className="min-w-[208px] max-w-[208px] cursor-pointer px-2">
       <View className="py-0">
-        <View className="w-full h-20 lg:h-[9rem] relative rounded-2xl overflow-hidden">
+        <View className="w-full h-20 relative rounded-2xl overflow-hidden">
           <Image
             source={require("../../assets/image.png")}
             style={{
