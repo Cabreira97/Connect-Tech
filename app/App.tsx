@@ -1,22 +1,17 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import DrawerNavigator from './src/components/DrawerNavigator';
-import LoginScreen from './src/components/LoginScreen';
-import RegisterScreen from './src/components/RegisterScreen';
-import Toast from 'react-native-toast-message';
-
-const Stack = createStackNavigator();
+import { Text, View } from "react-native";
+import InitialPage from "./src/screens/Initial";
+import LoginPage from "./src/screens/Login";
+import CreateTypeSelector from "./src/screens/CreateTypeSelector";
+import RegisterClient from "./src/screens/RegisterClient";
+import RegisterOrganization from "./src/screens/RegisterOrganization";
+import EventItem from "./src/components/EventItem";
+import PersonItem from "./src/components/PersonItem";
+import Home from "./src/screens/Home";
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Register" component={RegisterScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Drawer" component={DrawerNavigator} options={{ headerShown: false }} />
-      </Stack.Navigator>
-      <Toast />
-    </NavigationContainer>
+    <View className="flex-1 items-center justify-center bg-slate-200">
+      <Home />
+    </View>
   );
 }
