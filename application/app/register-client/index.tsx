@@ -1,13 +1,15 @@
-import { ScrollView, Text, View } from "react-native";
-import { Input } from "../components/Input";
-import { Button } from "../components/Button";
-import { useForm, Controller } from "react-hook-form";
+import { ScrollView, Text, View } from 'react-native';
+import { Input } from '../../components/Input';
+import { Button } from '../../components/Button';
+import { useForm, Controller } from 'react-hook-form';
+import { useRouter } from 'expo-router';
 
-const RegisterOrganization = () => {
+const RegisterClient = () => {
+  const router = useRouter();
   interface RegisterFormInputs {
     name: string;
     email: string;
-    cnpj: string;
+    cpf: string;
     password: string;
     confirmPassword: string;
   }
@@ -18,33 +20,33 @@ const RegisterOrganization = () => {
     formState: { errors },
   } = useForm<RegisterFormInputs>({
     defaultValues: {
-      name: "",
-      email: "",
-      cnpj: "",
-      password: "",
-      confirmPassword: "",
+      name: '',
+      email: '',
+      cpf: '',
+      password: '',
+      confirmPassword: '',
     },
-    mode: "onBlur",
+    mode: 'onBlur',
   });
 
   const onSubmit = (data: RegisterFormInputs) => {
     console.log(data);
-    // router.push('/home');
+    router.push('/home');
   };
 
   const getValues = (field: keyof RegisterFormInputs) => {
     return control._formValues[field];
   };
   return (
-    <ScrollView className="pt-16">
-      <View className="items-center">
-        <Text className="text-xl font-semibold pb-6">Faça seu cadastro</Text>
-        <View className="w-72 pb-8 gap-2">
+    <ScrollView className="flex-1 pt-16">
+      <View className="flex-1 items-center">
+        <Text className="pb-6 text-xl font-semibold">Faça seu cadastro</Text>
+        <View className="w-72 gap-2 pb-8">
           <View>
             <Controller
               control={control}
               name="name"
-              rules={{ required: "O campo nome é obrigatório" }}
+              rules={{ required: 'O campo nome é obrigatório' }}
               render={({ field: { onChange, onBlur, value } }) => (
                 <Input
                   placeholder="Digite seu nome"
@@ -62,14 +64,14 @@ const RegisterOrganization = () => {
               control={control}
               name="email"
               rules={{
-                required: "O campo e-mail é obrigatório",
+                required: 'O campo e-mail é obrigatório',
                 minLength: {
                   value: 5,
-                  message: "O campo e-mail deve ter pelo menos 5 caracteres",
+                  message: 'O campo e-mail deve ter pelo menos 5 caracteres',
                 },
                 pattern: {
                   value: /^\S+@\S+$/,
-                  message: "Insira um e-mail válido",
+                  message: 'Insira um e-mail válido',
                 },
               }}
               render={({ field: { onChange, onBlur, value } }) => (
@@ -87,8 +89,8 @@ const RegisterOrganization = () => {
           <View>
             <Controller
               control={control}
-              name="cnpj"
-              rules={{ required: "O campo cpf é obrigatório" }}
+              name="cpf"
+              rules={{ required: 'O campo cpf é obrigatório' }}
               render={({ field: { onChange, onBlur, value } }) => (
                 <Input
                   placeholder="Digite seu cpf"
@@ -96,7 +98,7 @@ const RegisterOrganization = () => {
                   onChangeText={onChange}
                   onBlur={onBlur}
                   value={value}
-                  errorMessage={errors.cnpj?.message}
+                  errorMessage={errors.cpf?.message}
                 />
               )}
             />
@@ -106,10 +108,10 @@ const RegisterOrganization = () => {
               control={control}
               name="password"
               rules={{
-                required: "O campo senha é obrigatório",
+                required: 'O campo senha é obrigatório',
                 minLength: {
                   value: 8,
-                  message: "O campo senha deve ter pelo menos 8 caracteres",
+                  message: 'O campo senha deve ter pelo menos 8 caracteres',
                 },
               }}
               render={({ field: { onChange, onBlur, value } }) => (
@@ -130,9 +132,8 @@ const RegisterOrganization = () => {
               control={control}
               name="confirmPassword"
               rules={{
-                required: "A confirmação da senha é obrigatória",
-                validate: (value) =>
-                  value === getValues("password") || "As senhas não coincidem",
+                required: 'A confirmação da senha é obrigatória',
+                validate: (value) => value === getValues('password') || 'As senhas não coincidem',
               }}
               render={({ field: { onChange, onBlur, value } }) => (
                 <Input
@@ -151,7 +152,7 @@ const RegisterOrganization = () => {
         <View className="items-center justify-center">
           <Button
             label="Registrar"
-            className="w-80 rounded-full"
+            className="m-auto w-80 rounded-full"
             labelClasses="text-xl font-semibold"
             onPress={handleSubmit(onSubmit)}
           />
@@ -161,4 +162,4 @@ const RegisterOrganization = () => {
   );
 };
 
-export default RegisterOrganization;
+export default RegisterClient;

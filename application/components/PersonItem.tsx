@@ -5,7 +5,7 @@ const PersonItem = () => {
     <View className="flex flex-col justify-center items-center min-w-20 max-w-20 px-2">
       <View className="relative w-14 h-14">
         <Image
-          source={require("../../assets/angelo.png")}
+          source={require("../assets/angelo.png")}
           className="rounded-full"
           style={{
             width: "100%",

@@ -6,7 +6,7 @@ const EventItem = () => {
       <View className="py-0">
         <View className="w-full h-20 relative rounded-2xl overflow-hidden">
           <Image
-            source={require("../../assets/image.png")}
+            source={require("../assets/image.png")}
             style={{
               width: "100%",
               height: "100%",

@@ -1,9 +1,11 @@
-import { Text, View } from "react-native";
-import { Input } from "../components/Input";
-import { Button } from "../components/Button";
-import { useForm, Controller } from "react-hook-form";
+import { Text, View } from 'react-native';
+import { Input } from '../../components/Input';
+import { Button } from '../../components/Button';
+import { useForm, Controller } from 'react-hook-form';
+import { useRouter } from 'expo-router';
 
 const LoginPage = () => {
+  const router = useRouter();
   interface LoginFormInputs {
     email: string;
     password: string;
@@ -14,17 +16,17 @@ const LoginPage = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<LoginFormInputs>({
-    mode: "onBlur",
+    mode: 'onBlur',
   });
 
   const onSubmit = (data: LoginFormInputs) => {
     console.log(data);
-    // router.push("/home");
+    router.push('/home');
   };
 
   return (
-    <View className="items-center">
-      <Text className="text-xl font-semibold pb-6">Faça seu Login</Text>
+    <View className="flex-1 items-center justify-center">
+      <Text className="pb-6 text-xl font-semibold">Faça seu Login</Text>
       <View className="w-72 pb-12">
         <View className="pb-4">
           <View>
@@ -32,14 +34,14 @@ const LoginPage = () => {
               control={control}
               name="email"
               rules={{
-                required: "O campo e-mail é obrigatório",
+                required: 'O campo e-mail é obrigatório',
                 minLength: {
                   value: 5,
-                  message: "O campo e-mail deve ter pelo menos 5 caracteres",
+                  message: 'O campo e-mail deve ter pelo menos 5 caracteres',
                 },
                 pattern: {
                   value: /^\S+@\S+$/,
-                  message: "Insira um e-mail válido",
+                  message: 'Insira um e-mail válido',
                 },
               }}
               render={({ field: { onChange, onBlur, value } }) => (
@@ -64,10 +66,10 @@ const LoginPage = () => {
               control={control}
               name="password"
               rules={{
-                required: "O campo senha é obrigatório",
+                required: 'O campo senha é obrigatório',
                 minLength: {
                   value: 8,
-                  message: "O campo senha deve ter pelo menos 8 caracteres",
+                  message: 'O campo senha deve ter pelo menos 8 caracteres',
                 },
               }}
               render={({ field: { onChange, onBlur, value } }) => (
@@ -89,7 +91,12 @@ const LoginPage = () => {
         </View>
       </View>
       <View className="items-center justify-center">
-        <Button className="w-80 rounded-full" labelClasses="m-auto" label="Entrar" onPress={handleSubmit(onSubmit)} />
+        <Button
+          className="w-80 rounded-full"
+          labelClasses="m-auto"
+          label="Entrar"
+          onPress={handleSubmit(onSubmit)}
+        />
       </View>
     </View>
   );
