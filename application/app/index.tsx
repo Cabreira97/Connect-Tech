@@ -1,6 +1,6 @@
+import { useRouter } from 'expo-router';
 import { Text, View } from 'react-native';
 import { Button } from '../components/Button';
-import { useRouter } from 'expo-router';
 
 const InitialPage = () => {
   const router = useRouter();

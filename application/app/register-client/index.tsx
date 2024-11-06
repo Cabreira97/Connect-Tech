@@ -3,6 +3,7 @@ import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { useForm, Controller } from 'react-hook-form';
 import { useRouter } from 'expo-router';
+import axios from 'axios';
 
 const RegisterClient = () => {
   const router = useRouter();
@@ -29,9 +30,21 @@ const RegisterClient = () => {
     mode: 'onBlur',
   });
 
-  const onSubmit = (data: RegisterFormInputs) => {
-    console.log(data);
-    router.push('/home');
+  const onSubmit = async (data: RegisterFormInputs) => {
+    try {
+      const response = await axios.post('http://192.168.130.125:3000/volunteers', data, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        timeout: 5000,
+      });
+
+      if (response.status === 201) {
+        router.push('/login');
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const getValues = (field: keyof RegisterFormInputs) => {

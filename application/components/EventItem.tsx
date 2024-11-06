@@ -1,36 +1,33 @@
-import { Image, Text, View, TouchableOpacity } from "react-native";
+import { Image, Text, View, TouchableOpacity } from 'react-native';
 
-const EventItem = () => {
+interface EventItemProps {
+  name: string;
+  date: string;
+  address: string;
+}
+
+const EventItem = ({ name, date, address }: EventItemProps) => {
   return (
     <TouchableOpacity className="min-w-[208px] max-w-[208px] cursor-pointer px-2">
       <View className="py-0">
-        <View className="w-full h-20 relative rounded-2xl overflow-hidden">
+        <View className="relative h-20 w-full overflow-hidden rounded-2xl">
           <Image
-            source={require("../assets/image.png")}
+            source={require('../assets/image.png')}
             style={{
-              width: "100%",
-              height: "100%",
-              resizeMode: "cover",
+              width: '100%',
+              height: '100%',
+              resizeMode: 'cover',
             }}
           />
         </View>
-        <Text
-          className="font-bold text-2xl overflow-hidden text-ellipsis"
-          numberOfLines={1}
-        >
-          Nome do evento
+        <Text className="overflow-hidden text-ellipsis text-2xl font-bold" numberOfLines={1}>
+          {name}
         </Text>
-        <Text
-          className="font-semibold overflow-hidden text-ellipsis"
-          numberOfLines={1}
-        >
-          11/11/1111
+        <Text className="overflow-hidden text-ellipsis font-semibold" numberOfLines={1}>
+          {date}
         </Text>
-        <Text
-          className="font-semibold overflow-hidden text-ellipsis"
-          numberOfLines={1}
-        >
-           Rua Vaiti esquina com Nãoti
+        <Text className="overflow-hidden text-ellipsis font-semibold" numberOfLines={1}>
+          {address}
         </Text>
       </View>
     </TouchableOpacity>

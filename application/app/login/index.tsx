@@ -3,6 +3,8 @@ import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { useForm, Controller } from 'react-hook-form';
 import { useRouter } from 'expo-router';
+import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const LoginPage = () => {
   const router = useRouter();
@@ -19,9 +21,29 @@ const LoginPage = () => {
     mode: 'onBlur',
   });
 
-  const onSubmit = (data: LoginFormInputs) => {
-    console.log(data);
-    router.push('/home');
+  const onSubmit = async (data: LoginFormInputs) => {
+    try {
+      const response = await axios.post('http://192.168.130.125:3000/auth/login', {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: {
+          email: data.email,
+          password: data.password,
+        },
+        timeout: 5000,
+      });
+
+      if (response.status === 201) {
+        const { access_token, user } = response.data;
+        await AsyncStorage.setItem('access_token', access_token);
+        await AsyncStorage.setItem('user', JSON.stringify(user));
+
+        router.push('/home');
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
