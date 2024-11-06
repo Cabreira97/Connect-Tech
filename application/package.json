@@ -17,7 +17,8 @@
     "react": "18.2.0",
     "react-hook-form": "^7.53.1",
     "react-native": "0.74.5",
-    "tailwind-merge": "^2.5.2"
+    "tailwind-merge": "^2.5.2",
+    "expo-router": "~3.5.23"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
