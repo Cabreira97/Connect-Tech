@@ -1,41 +1,63 @@
-# Connect-Tech
-## Descrição
 
-Connect-Tech é uma aplicação inovadora projetada para facilitar a conexão entre profissionais de tecnologia. A plataforma permite que os usuários criem perfis, compartilhem projetos, e colaborem em tempo real.
+---
 
-## Funcionalidades
+### README - Admin
 
-- Criação de perfil de usuário
-- Compartilhamento de projetos
-- Colaboração em tempo real
-- Sistema de mensagens instantâneas
-- Notificações personalizadas
+```markdown
+# Admin - Interface de Administração
+
+Este repositório é a interface de administração construída com Expo para gerenciar a API criada no repositório `nest-typescript-starter`. O painel de administração permite a criação e gerenciamento de usuários, além de exibir informações e estatísticas relacionadas ao sistema.
+
+## Tecnologias Usadas
+
+- **Expo**: Framework para construir aplicações nativas com React.
+- **React Navigation**: Para gerenciar a navegação no app.
+- **Axios**: Para fazer requisições HTTP à API.
+- **React Hook Form**: Para gerenciamento de formulários.
+- **Zod**: Para validação de dados.
 
 ## Instalação
 
-Para instalar a aplicação, siga os passos abaixo:
-
 1. Clone o repositório:
     ```bash
-    git clone https://github.com/Matheus-kb/Connect-Tech.git
+    git clone https://github.com/seu-usuario/connectech.git
     ```
-2. Navegue até o diretório do projeto:
-    ```bash
-    cd application
-    ```
-3. Instale as dependências:
+
+2. Instale as dependências:
     ```bash
     npm install
     ```
-4. Inicie a aplicação:
-    ```bash
-    npm start
+
+3. Configure o ambiente:
+    Crie um arquivo `.env` na raiz do projeto com as variáveis de ambiente necessárias, por exemplo:
+    ```env
+    API_URL=http://localhost:3000
     ```
 
-## Contribuição
+4. Inicie o aplicativo:
+    - Para Android:
+        ```bash
+        npm run android
+        ```
 
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e enviar pull requests.
+    - Para iOS:
+        ```bash
+        npm run ios
+        ```
+
+    - Para Web:
+        ```bash
+        npm run web
+        ```
+
+5. Acesse a interface de administração no seu dispositivo.
+
+## Funcionalidades
+
+- **Login de administrador**: Permite o acesso ao painel de administração.
+- **Gestão de usuários**: Criação, edição e exclusão de usuários.
+- **Exibição de estatísticas**: Visualização de dados e métricas do sistema.
 
 ## Licença
 
-Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este projeto está licenciado sob a Licença MIT.
